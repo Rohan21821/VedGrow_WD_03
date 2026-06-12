@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Quiz Master</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Background Icons -->
+
+    <div class="bg-icons">
+        <i class="fas fa-brain icon i1"></i>
+        <i class="fas fa-question-circle icon i2"></i>
+        <i class="fas fa-book icon i3"></i>
+        <i class="fas fa-graduation-cap icon i4"></i>
+        <i class="fas fa-lightbulb icon i5"></i>
+        <i class="fas fa-trophy icon i6"></i>
+        <i class="fas fa-star icon i7"></i>
+        <i class="fas fa-medal icon i8"></i>
+        <i class="fas fa-award icon i9"></i>
+        <i class="fas fa-rocket icon i10"></i>
+    </div>
+
+    <div class="container">
+
+        <!-- START SCREEN -->
+
+        <div id="start-screen" class="card">
+
+            <h1>
+                <i class="fas fa-brain"></i>
+                Smart Quiz Master
+            </h1>
+
+            <p class="tagline">
+                Powered by Open Trivia Database
+            </p>
+
+            <p class="subtitle">
+                Test your knowledge with real-time quiz questions
+            </p>
+
+            <button id="themeBtn">
+                🌙 Dark Mode
+            </button>
+
+            <input
+                type="text"
+                id="playerName"
+                placeholder="Enter Your Name"
+                maxlength="21"
+            />
+
+            <select id="category">
+                <option value="9">General Knowledge</option>
+                <option value="18">Computer Science</option>
+                <option value="17">Science & Nature</option>
+                <option value="21">Sports</option>
+                <option value="23">History</option>
+            </select>
+
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+
+            <select id="questionCount">
+                <option value="10">10 Questions</option>
+                <option value="15" selected>15 Questions</option>
+                <option value="20">20 Questions</option>
+            </select>
+
+            <button id="startBtn">
+                Start Quiz
+            </button>
+
+            <div class="best-score">
+                Best Score:
+                <span id="bestScore">0%</span>
+            </div>
+
+        </div>
+
+        <!-- LOADING SCREEN -->
+
+        <div id="loading-screen" class="card hidden">
+
+            <div class="loader"></div>
+
+            <h2>Loading Questions...</h2>
+
+            <p>Please wait</p>
+
+        </div>
+
+        <!-- QUIZ SCREEN -->
+
+        <div id="quiz-screen" class="card hidden">
+
+            <div class="quiz-header">
+
+                <h3 id="questionCounter">
+                    Question 1 / 15
+                </h3>
+
+                <div id="playerDisplay"></div>
+
+                <div id="difficultyBadge">
+                    Easy
+                </div>
+
+                <div id="timer">
+                    15
+                </div>
+
+            </div>
+
+            <div class="progress-container">
+
+                <div id="progressBar"></div>
+                
+
+            </div>
+
+            <div class="stats">
+
+    <div class="stat-box">
+        <span>✅ Correct</span>
+        <h4 id="correctCount">0</h4>
+    </div>
+
+    <div class="stat-box">
+        <span>❌ Wrong</span>
+        <h4 id="wrongCount">0</h4>
+    </div>
+
+    <div class="stat-box">
+        <span>🔥 Streak</span>
+        <h4 id="streakCount">0</h4>
+    </div>
+
+    <div class="stat-box">
+        <span>🎯 Accuracy</span>
+        <h4 id="accuracyCount">0%</h4>
+    </div>
+
+    <div class="stat-box">
+        <span>🏆 Best Streak</span>
+        <h4 id="bestStreak">0</h4>
+    </div>
+
+</div>
+
+             
+
+        <div class="quiz-meta">
+
+            <span id="categoryBadge">General Knowledge</span>
+
+            <span id="questionType">Multiple Choice</span>
+
+        </div>
+        
+            
+        
+
+            <h2 id="question">
+                Question Here
+            </h2>
+
+            <div id="answers"></div>
+
+            <button id="nextBtn" disabled>
+                Next Question
+            </button>
+
+        </div>
+
+        <!-- ERROR SCREEN -->
+        <div id="error-screen" class="card hidden">
+
+    <h2>⚠ Unable to Load Questions</h2>
+
+    <p>
+        Please check your internet connection
+        and try again.
+    </p>
+
+    <button id="retryBtn">
+        Try Again
+    </button>
+
+</div>
+
+        <!-- RESULT SCREEN -->
+
+        <div id="result-screen" class="card hidden">
+
+            <h1>Quiz Completed 🎉</h1>
+
+            <h3 id="congratsMessage"></h3>
+
+            <h2 id="finalScore">0%</h2>
+
+            <p id="correctAnswers"></p>
+
+            <p id="wrongAnswers"></p>
+
+            <p id="quizTime"></p>
+
+            <h3 id="performanceMessage"></h3>
+
+            <p id="rank"></p>
+
+            <button id="reviewBtn">
+                Review Answers
+            </button>
+
+            <div id="reviewSection" class="hidden"></div>
+
+            <button id="restartBtn">
+                Play Again
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+    <audio id="correctSound" src="sounds/correct.mp3"></audio>
+
+    <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+
+</body>
+
+</html>
+
